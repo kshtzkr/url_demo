@@ -1,0 +1,30 @@
+<body>
+    <div class="row">
+            <%= link_to logout_path,class:"logout-button"  do %>
+                Logout
+            <% end %>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="form">
+                    <%= form_for @url, url:short_url_path do |f| %>
+                        <fieldset>
+                            <%= f.text_field :long_url, class:""%>
+                            <%= f.submit "Submit" %>
+                        </fieldset>
+                    <% end %>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="url_list">
+                <ul>
+                    <% @url_list.each do |url| %>
+                        <li>
+                           <a href="<%= url.long_url %>" class="urls_links"   value = "<%= url.id%>">http://localhost:3000/<%= url.short_url%> </a>
+                        </li>
+                    <% end %>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
